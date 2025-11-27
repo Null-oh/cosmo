@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsv7nrok14ev1"]
+
+[ext_resource type="Script" path="res://inventory/wares_slot.gd" id="1_d11br"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvgpw"]
+bg_color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="wares_slot" type="Panel"]
+custom_minimum_size = Vector2(128, 150)
+offset_right = 128.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bvgpw")
+script = ExtResource("1_d11br")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="sell_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "s"
+
+[node name="quant_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="price_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/sell_button" to="." method="_on_sell_button_pressed"]

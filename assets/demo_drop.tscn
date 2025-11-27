@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://vyo3l8fbnfhp"]
+
+[ext_resource type="Script" path="res://assets/demo_drop.gd" id="1_4j8ty"]
+[ext_resource type="Texture2D" uid="uid://comh5ro0yoisi" path="res://img/demo_drop.png" id="2_sfavu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sboo"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr78g"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yubu"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tge52"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pdka"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp0bk"]
+atlas = ExtResource("2_sfavu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxfky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sboo")
+}],
+"loop": true,
+"name": &"five",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr78g")
+}],
+"loop": true,
+"name": &"four",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yubu")
+}],
+"loop": true,
+"name": &"one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tge52")
+}],
+"loop": true,
+"name": &"six",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pdka")
+}],
+"loop": true,
+"name": &"three",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp0bk")
+}],
+"loop": true,
+"name": &"two",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ouqkc"]
+radius = 9.0
+
+[node name="demo_drop" type="Node2D"]
+script = ExtResource("1_4j8ty")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sxfky")
+animation = &"six"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ouqkc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

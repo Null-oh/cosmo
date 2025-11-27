@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfxhx82wwfwoe"]
+
+[ext_resource type="PackedScene" uid="uid://dftidlnxwr3u4" path="res://assets/ui.tscn" id="1_bw5t3"]
+[ext_resource type="PackedScene" uid="uid://lkbk60opfidu" path="res://assets/spawn_base.tscn" id="2_5pf13"]
+[ext_resource type="Resource" uid="uid://dksnym45plw4u" path="res://inventory/all_drops/one.tres" id="3_uhm3b"]
+[ext_resource type="Script" path="res://inventory/drop_entry.gd" id="4_pe484"]
+[ext_resource type="Resource" uid="uid://bsorek6p1ygqy" path="res://inventory/all_drops/two.tres" id="5_mgggu"]
+
+[sub_resource type="Resource" id="Resource_5f07b"]
+script = ExtResource("4_pe484")
+item = ExtResource("3_uhm3b")
+probability = 100.0
+min_amount = 1
+max_amount = 5
+
+[sub_resource type="Resource" id="Resource_78ri8"]
+script = ExtResource("4_pe484")
+item = ExtResource("5_mgggu")
+probability = 80.0
+min_amount = 1
+max_amount = 1
+
+[node name="test" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_bw5t3")]
+visible = false
+
+[node name="spawn_base" parent="." instance=ExtResource("2_5pf13")]
+position = Vector2(688, 405)
+drops = Array[ExtResource("4_pe484")]([SubResource("Resource_5f07b"), SubResource("Resource_78ri8")])
+timer = 3
+drop_speed = 10.0

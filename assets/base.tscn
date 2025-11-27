@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://w34p8xlctup"]
+
+[ext_resource type="Texture2D" uid="uid://bedba0n4ut3gv" path="res://img/demo_base.png" id="1_gnp2k"]
+[ext_resource type="Script" path="res://assets/base.gd" id="1_lpaoc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83mtd"]
+atlas = ExtResource("1_gnp2k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrb0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83mtd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hf8h0"]
+radius = 23.0
+
+[node name="base" type="Node2D"]
+script = ExtResource("1_lpaoc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hrb0b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hf8h0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

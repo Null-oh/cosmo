@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvdqi4m5er4cg"]
+
+[ext_resource type="Script" path="res://inventory/inv_ui.gd" id="1_smbpe"]
+[ext_resource type="PackedScene" uid="uid://diote6kadm1sw" path="res://inventory/ui_slot.tscn" id="2_u7jum"]
+
+[node name="inv_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_smbpe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+color = Color(0.627451, 0.627451, 0.627451, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = -100.0
+offset_right = 236.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 7
+
+[node name="ui_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_u7jum")]
+layout_mode = 2

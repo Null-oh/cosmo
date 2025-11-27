@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b16axa3n2pt0q"]
+
+[ext_resource type="Script" path="res://assets/ship.gd" id="1_rd41m"]
+[ext_resource type="Texture2D" uid="uid://cpcusldbvbu6i" path="res://img/demo_ship.png" id="2_4qqdc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3l30"]
+atlas = ExtResource("2_4qqdc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jb36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3l30")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylfgg"]
+radius = 20.0049
+
+[node name="ship" type="CharacterBody2D"]
+script = ExtResource("1_rd41m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8jb36")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, 16, 0, -16, 16, 16)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="pickup_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ylfgg")
