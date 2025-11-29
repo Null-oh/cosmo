@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
+var speed: float
 @export var rotation_speed: float = 5.0
 @export var tow_speed: float = 100.0
-@export var tick: float = 1.0
+
+@export var tick: float = 1.0 #отладка
 
 var target_position: Vector2
 var is_moving: bool = false
@@ -24,7 +25,13 @@ func _ready():
 	if pickup_area:
 		pickup_area.area_entered.connect(_on_pickup_area_entered)
 	
+	Global.upgrades_applied.connect(update_upgrades)
 	load_ship_state()
+	update_upgrades()
+	
+
+func update_upgrades():
+	speed = Global.speed
 
 func load_ship_state():
 	var ship_state = Global.get_ship_state()
@@ -32,9 +39,6 @@ func load_ship_state():
 		global_position = ship_state["position"]
 
 func _exit_tree():
-	save_ship_state()
-
-func save_ship_state():
 	Global.save_ship_state(global_position)
 
 func _input(event):

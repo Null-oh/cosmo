@@ -7,7 +7,6 @@ func _on_area_2d_body_entered(body):
 		body.is_at_base = true
 		Global.current_fuel = Global.max_fuel
 		_transfer_inventory()
-		print("base")
 
 func _transfer_inventory():
 	var inventory = Global.get_inventory()
@@ -16,9 +15,7 @@ func _transfer_inventory():
 	if inventory and wares:
 		for item in inventory.items:
 			wares.items.append(item)
-			print("Moved: ", item.name)
 	
 	Global.clear_inventory()
 	
 	inv_ui.update_inventory()
-	print("transfer")

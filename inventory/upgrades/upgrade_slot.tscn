@@ -1,0 +1,121 @@
+[gd_scene load_steps=2 format=3 uid="uid://rkay8g78wajo"]
+
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade_slot.gd" id="1_ovafu"]
+
+[node name="upgrade_slot" type="Panel"]
+custom_minimum_size = Vector2(250, 150)
+offset_right = 250.0
+offset_bottom = 150.0
+script = ExtResource("1_ovafu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="left_half_vbox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="title" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox"]
+layout_mode = 2
+text = "TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="description" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox"]
+layout_mode = 2
+text = "description"
+
+[node name="price_vbox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/left_half_vbox"]
+layout_mode = 2
+
+[node name="price1" type="HBoxContainer" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="item_texture" type="TextureRect" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price1"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price1"]
+layout_mode = 2
+text = "name"
+
+[node name="item_quantity" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price1"]
+layout_mode = 2
+text = "x 3"
+
+[node name="price2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="item_texture" type="TextureRect" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price2"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price2"]
+layout_mode = 2
+text = "name"
+
+[node name="item_quantity" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price2"]
+layout_mode = 2
+text = "x 3"
+
+[node name="price3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="item_texture" type="TextureRect" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price3"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="item_name" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price3"]
+layout_mode = 2
+text = "name"
+
+[node name="item_quantity" type="Label" parent="MarginContainer/HBoxContainer/left_half_vbox/price_vbox/price3"]
+layout_mode = 2
+text = "x 3"
+
+[node name="divider_control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="right_half_vbox" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="upgrade_texture" type="TextureRect" parent="MarginContainer/HBoxContainer/right_half_vbox"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/right_half_vbox/upgrade_texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buy_button" type="Button" parent="MarginContainer/HBoxContainer/right_half_vbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "buy"

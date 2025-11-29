@@ -6,4 +6,4 @@ class_name DropItem
 @export var price: int = 0
 @export var sprite: Texture2D
 
-@export var drop_scene: PackedScene
+var drop_scene: PackedScene = preload("res://inventory/drop_scene.tscn")

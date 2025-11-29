@@ -11,9 +11,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_gq4wu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -14, -1, 0, 0, 0, 0, 61, 1, 0, 0, 0, 0, 99, -30, 0, 0, 0, 0, 134, -99, 0, 0, 0, 0, 102, -193, 0, 0, 0, 0, 29, -254, 0, 0, 0, 0, -69, -258, 0, 0, 0, 0, -125, -224, 0, 0, 0, 0, -155, -158, 0, 0, 0, 0, -162, -93, 0, 0, 0, 0, -98, -20, 0, 0, 0, 0, -16, 0)
+"points": PackedVector2Array(0, -19.993, 0, 19.993, -98, -20, 0, 0, 0, 0, -96, -258, 0, 0, 0, 0, 135, -257, 0, 0, 0, 0, 136, -17, 0, 0, 0, 0, -97, -20, 0, 0, 0, 0, -98, -20)
 }
-point_count = 12
+point_count = 6
 
 [sub_resource type="Resource" id="Resource_r0bry"]
 script = ExtResource("9_duner")
@@ -36,7 +36,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0
 
 [node name="ship" parent="." instance=ExtResource("2_oxqfs")]
 position = Vector2(111, -41)
-speed = 300.0
 tow_speed = 50.0
 tick = 0.05
 
@@ -45,7 +44,8 @@ tick = 0.05
 [node name="UI" parent="." instance=ExtResource("5_xa11q")]
 
 [node name="spawn_base" parent="." instance=ExtResource("8_f0xcp")]
-position = Vector2(13, 80)
+position = Vector2(8.93163, 101.73)
+scale = Vector2(1.02991, 0.925311)
 curve = SubResource("Curve2D_gq4wu")
 drops = Array[ExtResource("9_duner")]([SubResource("Resource_r0bry"), SubResource("Resource_0toc6")])
 timer = 2

@@ -28,9 +28,6 @@ enum drop_movement_type {fly, orbit}
 var is_moving: bool
 
 func _ready():
-	#curve = Curve2D.new()
-	
-	#center = self.global_position
 	center = position
 	_timer = float(timer)
 	

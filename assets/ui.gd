@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var fuel_bar = $fuel
 @onready var pause_button = $VBoxContainer/pause
+@onready var wares_button = $VBoxContainer/wares
 
 @export var inventory: Inv
 

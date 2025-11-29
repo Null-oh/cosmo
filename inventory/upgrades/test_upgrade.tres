@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=15 format=3 uid="uid://c2yuyt0j54aqx"]
+
+[ext_resource type="Resource" uid="uid://dksnym45plw4u" path="res://inventory/all_drops/one.tres" id="1_auts4"]
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade.gd" id="1_qvbxr"]
+[ext_resource type="Script" path="res://inventory/upgrades/price_entry.gd" id="2_senyu"]
+[ext_resource type="Script" path="res://inventory/upgrades/level_price.gd" id="3_eq7h6"]
+[ext_resource type="Resource" uid="uid://bsorek6p1ygqy" path="res://inventory/all_drops/two.tres" id="3_o8hmb"]
+
+[sub_resource type="Resource" id="Resource_gnlyu"]
+script = ExtResource("2_senyu")
+item = ExtResource("1_auts4")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_car0o"]
+script = ExtResource("3_eq7h6")
+item1 = SubResource("Resource_gnlyu")
+
+[sub_resource type="Resource" id="Resource_x7day"]
+script = ExtResource("2_senyu")
+item = ExtResource("1_auts4")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_k1dvr"]
+script = ExtResource("2_senyu")
+item = ExtResource("3_o8hmb")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_j5470"]
+script = ExtResource("3_eq7h6")
+item1 = SubResource("Resource_x7day")
+item2 = SubResource("Resource_k1dvr")
+
+[sub_resource type="Resource" id="Resource_gbtac"]
+script = ExtResource("2_senyu")
+item = ExtResource("1_auts4")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_ij3xp"]
+script = ExtResource("2_senyu")
+item = ExtResource("3_o8hmb")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_qownx"]
+script = ExtResource("2_senyu")
+item = ExtResource("1_auts4")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_rtfxq"]
+script = ExtResource("3_eq7h6")
+item1 = SubResource("Resource_gbtac")
+item2 = SubResource("Resource_ij3xp")
+item3 = SubResource("Resource_qownx")
+
+[resource]
+script = ExtResource("1_qvbxr")
+id = "first"
+name = "test"
+feature = "speed"
+initial_level = 1
+descriptions = Array[String](["-", "speed lvl 1 -> 2", "speed lvl 2 -> 3", "max lvl"])
+level_prices = Array[ExtResource("3_eq7h6")]([SubResource("Resource_car0o"), SubResource("Resource_j5470"), SubResource("Resource_rtfxq")])

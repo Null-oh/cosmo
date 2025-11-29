@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=15 format=3 uid="uid://4a2qhatv8rgq"]
+
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade.gd" id="1_3am7b"]
+[ext_resource type="Resource" uid="uid://bsorek6p1ygqy" path="res://inventory/all_drops/two.tres" id="1_7u3vq"]
+[ext_resource type="Script" path="res://inventory/upgrades/price_entry.gd" id="2_1f61f"]
+[ext_resource type="Resource" uid="uid://dksnym45plw4u" path="res://inventory/all_drops/one.tres" id="3_hqq01"]
+[ext_resource type="Script" path="res://inventory/upgrades/level_price.gd" id="3_x1kws"]
+
+[sub_resource type="Resource" id="Resource_22l8t"]
+script = ExtResource("3_x1kws")
+
+[sub_resource type="Resource" id="Resource_e0a8k"]
+script = ExtResource("2_1f61f")
+item = ExtResource("3_hqq01")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_on03n"]
+script = ExtResource("3_x1kws")
+item1 = SubResource("Resource_e0a8k")
+
+[sub_resource type="Resource" id="Resource_ykc2h"]
+script = ExtResource("2_1f61f")
+item = ExtResource("3_hqq01")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_6ksse"]
+script = ExtResource("2_1f61f")
+item = ExtResource("1_7u3vq")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_u750i"]
+script = ExtResource("3_x1kws")
+item1 = SubResource("Resource_ykc2h")
+item2 = SubResource("Resource_6ksse")
+
+[sub_resource type="Resource" id="Resource_geo1l"]
+script = ExtResource("2_1f61f")
+item = ExtResource("3_hqq01")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_vy8hk"]
+script = ExtResource("2_1f61f")
+item = ExtResource("1_7u3vq")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_d7xwt"]
+script = ExtResource("3_x1kws")
+item1 = SubResource("Resource_geo1l")
+item2 = SubResource("Resource_vy8hk")
+
+[resource]
+script = ExtResource("1_3am7b")
+id = "second"
+name = "second test"
+feature = ""
+initial_level = 1
+descriptions = Array[String](["-", "1 > 2", "2 > 3", "3."])
+level_prices = Array[ExtResource("3_x1kws")]([SubResource("Resource_22l8t"), SubResource("Resource_on03n"), SubResource("Resource_u750i"), SubResource("Resource_d7xwt")])

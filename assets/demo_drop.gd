@@ -13,6 +13,6 @@ func _ready():
 		6: sprite.play("six")
 
 
-func _on_area_2d_body_entered(body):
-	if body.name == "ship":
-		print("drop")
+#func _on_area_2d_body_entered(body):
+	#if body.name == "ship":
+		#print("drop")
