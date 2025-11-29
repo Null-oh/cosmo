@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=3 format=3 uid="uid://c1bgw4drbquda"]
+
+[ext_resource type="Script" path="res://inventory/drop.gd" id="1_javdr"]
+[ext_resource type="Texture2D" uid="uid://qyu4wtckdrtl" path="res://img/demo_drop/sprite_3.png" id="2_n5dt7"]
+
+[resource]
+script = ExtResource("1_javdr")
+name = "dust"
+price = 1
+sprite = ExtResource("2_n5dt7")

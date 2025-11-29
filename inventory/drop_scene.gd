@@ -2,6 +2,9 @@ extends Area2D
 
 @export var drop_item: DropItem
 
+var lifetime: float
+var life: float
+
 enum drop_movement_type {fly, orbit}
 var movement_type: drop_movement_type
 
@@ -16,11 +19,13 @@ var orbit_time: float = 0.0
 @onready var sprite_node = $Sprite2D
 
 func _ready():
+	life = 0.0
 	if drop_item and sprite_node:
 		sprite_node.texture = drop_item.sprite
 
 func setup_drop_item(new_drop_item: DropItem):
 	drop_item = new_drop_item
+	#drop_item.drop_scene.lifetime = self.lifetime
 	if sprite_node:
 		sprite_node.texture = drop_item.sprite
 
@@ -43,9 +48,14 @@ func _physics_process(delta):
 			position += direction * movement_speed * delta
 		drop_movement_type.orbit:
 			orbit_time += delta
-			var angle = orbit_angle + orbit_time * movement_speed
+			var angular_speed = movement_speed / orbit_radius
+			var angle = orbit_angle + orbit_time * angular_speed
 			global_position = orbit_center + Vector2(cos(angle), sin(angle)) * orbit_radius
-
+	if lifetime > 0.0:
+		if life < lifetime:
+			life += delta
+		else:
+			self.queue_free()
 func pickup():
 	if Global.current_fuel <= 0:
 		return null

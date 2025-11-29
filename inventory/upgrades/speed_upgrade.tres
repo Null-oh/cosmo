@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=12 format=3 uid="uid://cc34tsmn6fviu"]
+
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade.gd" id="1_s82u4"]
+[ext_resource type="Resource" uid="uid://c1bgw4drbquda" path="res://inventory/all_drops/dust.tres" id="1_ydu3s"]
+[ext_resource type="Script" path="res://inventory/upgrades/price_entry.gd" id="2_521m4"]
+[ext_resource type="Script" path="res://inventory/upgrades/level_price.gd" id="3_p45y6"]
+[ext_resource type="Resource" uid="uid://cmad7fpuq7tgb" path="res://inventory/all_drops/stone.tres" id="4_4l3dx"]
+
+[sub_resource type="Resource" id="Resource_obh3p"]
+script = ExtResource("3_p45y6")
+
+[sub_resource type="Resource" id="Resource_oluui"]
+script = ExtResource("2_521m4")
+item = ExtResource("1_ydu3s")
+quantity = 20
+
+[sub_resource type="Resource" id="Resource_pyd0b"]
+script = ExtResource("3_p45y6")
+item1 = SubResource("Resource_oluui")
+
+[sub_resource type="Resource" id="Resource_wo2rg"]
+script = ExtResource("2_521m4")
+item = ExtResource("1_ydu3s")
+quantity = 50
+
+[sub_resource type="Resource" id="Resource_1oaj1"]
+script = ExtResource("2_521m4")
+item = ExtResource("4_4l3dx")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_bfu03"]
+script = ExtResource("3_p45y6")
+item1 = SubResource("Resource_wo2rg")
+item2 = SubResource("Resource_1oaj1")
+
+[resource]
+script = ExtResource("1_s82u4")
+id = "speed"
+name = "Speed"
+feature = "speed"
+initial_level = 1
+descriptions = Array[String](["0", "speed +50", "speed +50", "max speed"])
+level_prices = Array[ExtResource("3_p45y6")]([SubResource("Resource_obh3p"), SubResource("Resource_pyd0b"), SubResource("Resource_bfu03")])

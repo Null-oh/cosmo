@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="UpgradesDatabase" load_steps=4 format=3 uid="uid://h4l7arqnul4s"]
+[gd_resource type="Resource" script_class="UpgradesDatabase" load_steps=3 format=3 uid="uid://h4l7arqnul4s"]
 
 [ext_resource type="Script" path="res://inventory/upgrades/upgrades_database.gd" id="1_ml8ja"]
-[ext_resource type="Resource" uid="uid://c2yuyt0j54aqx" path="res://inventory/upgrades/test_upgrade.tres" id="2_ufdx5"]
-[ext_resource type="Resource" uid="uid://4a2qhatv8rgq" path="res://inventory/upgrades/test_upgrade2.tres" id="3_0midk"]
+[ext_resource type="Resource" uid="uid://cc34tsmn6fviu" path="res://inventory/upgrades/speed_upgrade.tres" id="2_7hvem"]
 
 [resource]
 script = ExtResource("1_ml8ja")
-upgrades = Array[Resource("res://inventory/upgrades/upgrade.gd")]([ExtResource("2_ufdx5"), ExtResource("3_0midk")])
+upgrades = Array[Resource("res://inventory/upgrades/upgrade.gd")]([ExtResource("2_7hvem")])

@@ -1,16 +1,16 @@
 extends Node2D
 
-@onready var wares_container = $wares_UI/VBoxContainer/TabContainer/wares_tab/NinePatchRect/MarginContainer/wares_grid_container
-@onready var upgrades_container = $wares_UI/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect/MarginContainer/upgrades_grid_container
+@onready var wares_container = $wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect/MarginContainer/wares_grid_container
+@onready var upgrades_container = $wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2/MarginContainer/upgrades_grid_container
 
 @export var upgrades_database: UpgradesDatabase
 
-@onready var money_label = $wares_UI/VBoxContainer/MarginContainer/HBoxContainer/money_label
+@onready var money_label = $wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer/money_label
 
 @onready var wares_slot = preload("res://inventory/wares_slot.tscn")
 @onready var upgrade_slot = preload("res://inventory/upgrades/upgrade_slot.tscn")
 
-@onready var tab_container = $wares_UI/VBoxContainer/TabContainer
+@onready var tab_container = $wares_UI/Control/VBoxContainer/TabContainer
 
 func _ready():
 	update_labels()
