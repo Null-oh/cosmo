@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://dftidlnxwr3u4"]
+[gd_scene load_steps=14 format=3 uid="uid://dftidlnxwr3u4"]
 
 [ext_resource type="Script" path="res://assets/ui.gd" id="1_57kka"]
 [ext_resource type="Resource" uid="uid://cv316mqbw3mmy" path="res://inventory/inventory1.tres" id="2_5urs0"]
 [ext_resource type="Script" path="res://assets/base_button.gd" id="2_7eop7"]
-[ext_resource type="Script" path="res://assets/inventory_button.gd" id="4_0c051"]
+[ext_resource type="Texture2D" uid="uid://c00jwf865n7ic" path="res://img/actual/ui/button_6.png" id="4_4nw7c"]
 [ext_resource type="PackedScene" uid="uid://bvdqi4m5er4cg" path="res://inventory/inv_ui.tscn" id="5_onbej"]
 [ext_resource type="Script" path="res://assets/wares_button.gd" id="5_u0rmw"]
+[ext_resource type="Texture2D" uid="uid://byovug4ikt23q" path="res://img/actual/ui/button_1.png" id="6_n60ql"]
+[ext_resource type="PackedScene" uid="uid://yro81xd5lot7" path="res://assets/mini_map.tscn" id="8_86slx"]
+[ext_resource type="Texture2D" uid="uid://bdajuot5gfp8v" path="res://img/actual/ui/button_4.png" id="8_ayfia"]
+[ext_resource type="Script" path="res://assets/pause_container.gd" id="10_0v71b"]
+[ext_resource type="Texture2D" uid="uid://wdegcc51fmox" path="res://img/actual/ui/button_3.png" id="10_n74qw"]
+[ext_resource type="Texture2D" uid="uid://bl4y6q1l6m3vp" path="res://img/actual/ui/button_2.png" id="12_ivfyl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tdcm"]
+bg_color = Color(0.823529, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_57kka")
@@ -21,8 +30,18 @@ offset_top = -200.0
 offset_right = 35.0
 offset_bottom = 200.0
 grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_7tdcm")
 fill_mode = 3
 show_percentage = false
+
+[node name="mini_map" parent="." instance=ExtResource("8_86slx")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
@@ -37,30 +56,44 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="pause" type="Button" parent="VBoxContainer" groups=["ui"]]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-text = "X"
+icon = ExtResource("4_4nw7c")
+flat = true
 
 [node name="base" type="Button" parent="VBoxContainer" groups=["ui"]]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-text = "tow"
+icon = ExtResource("6_n60ql")
+flat = true
 script = ExtResource("2_7eop7")
 
 [node name="inventory" type="Button" parent="VBoxContainer" groups=["ui"]]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-text = "inv"
-script = ExtResource("4_0c051")
+icon = ExtResource("8_ayfia")
+flat = true
+
+[node name="map" type="Button" parent="VBoxContainer" groups=["ui"]]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("10_n74qw")
+flat = true
 
 [node name="wares" type="Button" parent="VBoxContainer" groups=["ui"]]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
 layout_mode = 2
-text = "W"
+icon = ExtResource("12_ivfyl")
+flat = true
 script = ExtResource("5_u0rmw")
 
 [node name="inv_ui" parent="." groups=["inventory_ui"] instance=ExtResource("5_onbej")]
@@ -72,6 +105,36 @@ anchor_bottom = 0.5
 offset_left = -25.0
 offset_right = 25.0
 
+[node name="pause_container" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("10_0v71b")
+
+[node name="continue" type="Button" parent="pause_container"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "продолжить"
+
+[node name="exit" type="Button" parent="pause_container"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "выйти"
+
+[connection signal="pressed" from="VBoxContainer/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="VBoxContainer/base" to="VBoxContainer/base" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/inventory" to="VBoxContainer/inventory" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/wares" to="VBoxContainer/wares" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="VBoxContainer/map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/wares" to="." method="_on_wares_pressed"]
+[connection signal="pressed" from="pause_container/continue" to="pause_container" method="_on_continue_pressed"]
+[connection signal="pressed" from="pause_container/exit" to="pause_container" method="_on_exit_pressed"]

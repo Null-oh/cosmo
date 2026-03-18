@@ -1,7 +1,6 @@
 extends Path2D
 
 #drops
-@export_category("Item Drops")
 @export var drops: Array[DropEntry]
 
 #self coords
@@ -17,7 +16,7 @@ var time_passed: float = 0.0
 @export var drop_speed: float
 enum drop_movement_type {fly, orbit}
 @export var drop_movement: drop_movement_type
-@export_range(0, 100, 1, "suffix: px") var orbit: int
+@export_range(0, 10000, 1, "suffix: px") var orbit: int
 
 #self movement
 @export var self_speed: float
@@ -29,15 +28,19 @@ enum drop_movement_type {fly, orbit}
 var is_moving: bool
 
 func _ready():
-	center = position
+	#center = position
 	_timer = float(timer)
 	
 	if auto_start: 
 		is_moving = true
 
+func get_center():
+	return global_position
+
 func _process(delta):
 	if is_moving and path_follow:
 		path_follow.progress += delta * self_speed
+		
 	
 	if path_follow.progress_ratio >= 1.0 and not loop_path:
 		is_moving = false
@@ -66,22 +69,24 @@ func spawn():
 		if randf()* 100.0 <= drop_entry.probability:
 			var amount = randi_range(drop_entry.min_amount, drop_entry.max_amount)
 			for i in amount:
-				var item_instance = drop_entry.item.drop_scene.instantiate()
-				
-				item_instance.lifetime = self.lifetime
-				
-				var spawn_position: Vector2
-				
-				var current_global_pos = path_follow.global_position
-				
-				match drop_movement:
-					drop_movement_type.fly:
-						spawn_position = current_global_pos
-					drop_movement_type.orbit:
-						var random_angle = randf_range(0, TAU)
-						spawn_position = current_global_pos + Vector2(cos(random_angle), sin(random_angle)) * orbit
-				
-				instantiate_item(item_instance, spawn_position, drop_entry.item)
+				if drop_entry.item.drop_scene:
+					var item_instance = drop_entry.item.drop_scene.instantiate()
+					
+					item_instance.lifetime = self.lifetime
+					
+					var spawn_position: Vector2
+					
+					var current_global_pos = path_follow.global_position
+					
+					match drop_movement:
+						drop_movement_type.fly:
+							spawn_position = current_global_pos
+						drop_movement_type.orbit:
+							var random_angle = randf_range(0, TAU)
+							spawn_position = current_global_pos + Vector2(cos(random_angle), sin(random_angle)) * orbit
+					
+					instantiate_item(item_instance, spawn_position, drop_entry.item)
+				else: break
 				
 
 func instantiate_item(item_instance, spawn_position: Vector2, drop_item_resource: DropItem):
@@ -93,9 +98,9 @@ func instantiate_item(item_instance, spawn_position: Vector2, drop_item_resource
 	
 	match drop_movement:
 		drop_movement_type.fly:
-			item_instance.setup_movement(drop_movement_type.fly, drop_speed, center, 0.0)
+			item_instance.setup_movement(drop_movement_type.fly, drop_speed, path_follow.global_position, 0.0)
 		drop_movement_type.orbit:
-			item_instance.setup_movement(drop_movement_type.orbit, drop_speed, center, orbit)
+			item_instance.setup_movement(drop_movement_type.orbit, drop_speed, path_follow.global_position, orbit)
 
 func drop_single():
 	Global.to_drop_single = false

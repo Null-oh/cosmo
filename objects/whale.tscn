@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://ovc3f3j5thku"]
+
+[ext_resource type="Script" path="res://objects/whale.gd" id="1_8q5et"]
+[ext_resource type="Resource" uid="uid://ti2r1rg0qfaq" path="res://inventory/all_drops/barnacle.tres" id="2_5p2o6"]
+[ext_resource type="Texture2D" uid="uid://c6tjr3q33672d" path="res://img/actual/objects/barnacle_0-1.png.png" id="2_dp26h"]
+[ext_resource type="Texture2D" uid="uid://g46yafoisslm" path="res://img/actual/ui/boer.png" id="2_ov8ia"]
+[ext_resource type="Script" path="res://inventory/drop_entry.gd" id="3_8vgnc"]
+[ext_resource type="Texture2D" uid="uid://tun4mqn2csc" path="res://img/actual/ui/no-boer.png" id="3_q2sck"]
+[ext_resource type="Resource" uid="uid://cj08cwfxqtmb5" path="res://inventory/all_drops/whale_tooth.tres" id="4_i2kyc"]
+[ext_resource type="Resource" uid="uid://dwjrulqvhpn23" path="res://inventory/all_drops/baleen.tres" id="5_hms6j"]
+[ext_resource type="Texture2D" uid="uid://c1db67att4o8a" path="res://img/actual/objects/whale_1.png" id="6_3jv42"]
+
+[sub_resource type="Curve2D" id="Curve2D_o3w7e"]
+
+[sub_resource type="Resource" id="Resource_0cxef"]
+script = ExtResource("3_8vgnc")
+item = ExtResource("5_hms6j")
+probability = 15.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="Resource" id="Resource_xag3n"]
+script = ExtResource("3_8vgnc")
+item = ExtResource("2_5p2o6")
+probability = 100.0
+min_amount = 1
+max_amount = 2
+
+[sub_resource type="Resource" id="Resource_jiwu5"]
+script = ExtResource("3_8vgnc")
+item = ExtResource("4_i2kyc")
+probability = 15.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhqk3"]
+radius = 20.3917
+height = 216.498
+
+[node name="whale" type="Path2D" groups=["to_map"]]
+texture_filter = 1
+curve = SubResource("Curve2D_o3w7e")
+script = ExtResource("1_8q5et")
+initial_health = 50
+is_breakable = false
+map_mark = ExtResource("2_dp26h")
+self_speed = 20.0
+auto_start = true
+drops = Array[ExtResource("3_8vgnc")]([SubResource("Resource_0cxef"), SubResource("Resource_xag3n"), SubResource("Resource_jiwu5")])
+timer = 120.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(69, 10)
+texture = ExtResource("6_3jv42")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(38, 28)
+rotation = -0.177596
+
+[node name="drill_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(55, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -3)
+rotation = 1.35276
+shape = SubResource("CapsuleShape2D_nhqk3")
+
+[node name="timer_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="drill_button" type="Button" parent="." groups=["ui"]]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -35.0
+offset_right = 46.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("2_ov8ia")
+flat = true
+
+[node name="no_drill" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(26, -15)
+texture = ExtResource("3_q2sck")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="drill_button" to="." method="_on_drill_button_pressed"]

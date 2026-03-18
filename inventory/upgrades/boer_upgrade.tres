@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=9 format=3 uid="uid://dsoyjx48q4dfg"]
+
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade.gd" id="1_f1mso"]
+[ext_resource type="Resource" uid="uid://cmad7fpuq7tgb" path="res://inventory/all_drops/stone.tres" id="1_iwje3"]
+[ext_resource type="Script" path="res://inventory/upgrades/price_entry.gd" id="2_6px2q"]
+[ext_resource type="Resource" uid="uid://cco4wkm6pqcyk" path="res://inventory/all_drops/scrap.tres" id="3_n68df"]
+[ext_resource type="Script" path="res://inventory/upgrades/level_price.gd" id="4_tb6rs"]
+
+[sub_resource type="Resource" id="Resource_5rv6c"]
+script = ExtResource("2_6px2q")
+item = ExtResource("1_iwje3")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_xsg5g"]
+script = ExtResource("2_6px2q")
+item = ExtResource("3_n68df")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_2drdn"]
+script = ExtResource("4_tb6rs")
+item1 = SubResource("Resource_5rv6c")
+item2 = SubResource("Resource_xsg5g")
+
+[resource]
+script = ExtResource("1_f1mso")
+id = "boer"
+name = "Бур"
+feature = "boer"
+initial_level = 0
+descriptions = Array[String](["(Новый)"])
+level_prices = Array[ExtResource("4_tb6rs")]([SubResource("Resource_2drdn")])

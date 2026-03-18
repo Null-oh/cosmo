@@ -6,6 +6,8 @@ var speed: float
 
 @export var tick: float = 1.0 #отладка
 
+@onready var map_mark = preload("res://img/demo_drop/sprite_3.png")
+
 var target_position: Vector2
 var is_moving: bool = false
 var is_dragging: bool = false
@@ -15,7 +17,11 @@ var fuel_timer: float = 0.0
 var was_towed: bool = false
 var is_at_base: bool = false
 
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite = $sprites
+@onready var speed_sprite = $sprites/speed_sprite
+@onready var fuel_sprite = $sprites/fuel_sprite
+@onready var boer_sprite = $sprites/boer_sprite
+
 @onready var camera = $Camera2D
 @onready var pickup_area = $pickup_area
 
@@ -28,6 +34,13 @@ func _ready():
 	Global.upgrades_applied.connect(update_upgrades)
 	load_ship_state()
 	update_upgrades()
+	
+	var ui_elements = get_tree().get_nodes_in_group("ui")
+	#for i in ui_elements:
+		#print(i.name)
+	
+	if sprite:
+		set_sprites()
 	
 
 func update_upgrades():
@@ -140,3 +153,31 @@ func _on_pickup_area_entered(area):
 		if drop_item:
 			Global.add_to_inventory(drop_item)
 			get_node("/root/space/UI/inv_ui").update_inventory()
+
+func set_sprites():
+	var upgrades_db = preload("res://inventory/upgrades/AllUpgrades.tres")
+	if upgrades_db:
+		for upgrade in upgrades_db.upgrades:
+			var level = Global.get_upgrade_level(upgrade.id)
+			match level:
+				0:
+					match upgrade.feature:
+						"boer": boer_sprite.visible = false
+				1: 
+					match upgrade.feature:
+						"speed": speed_sprite.play("speed1")
+						"fuel": fuel_sprite.play("fuel1")
+						"boer": boer_sprite.play("boer1")
+						"respawn": pass
+				2: 
+					match upgrade.feature:
+						"speed": speed_sprite.play("speed2")
+						"fuel": fuel_sprite.play("fuel2")
+						"boer": boer_sprite.play("boer2")
+						"respawn": pass
+				3: 
+					match upgrade.feature:
+						"speed": speed_sprite.play("speed3")
+						"fuel": fuel_sprite.play("fuel3")
+						"boer": boer_sprite.play("boer3")
+						"respawn": pass

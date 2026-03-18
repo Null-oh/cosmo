@@ -1,9 +1,10 @@
 extends Button
 
-func _ready():
-	pass
+@onready var inventory = get_node("/root/space/UI/inv_ui")
+@onready var mini_map = get_node("/root/space/UI/mini_map")
 
 func _on_pressed():
-	var inv_ui = get_node("/root/space/UI/inv_ui")
-	if inv_ui:
-		inv_ui.switch()
+	if inventory:
+		inventory.visible = !inventory.visible
+		if !mini_map.visible:
+			Engine.time_scale = Engine.time_scale + (-1)**(Engine.time_scale)

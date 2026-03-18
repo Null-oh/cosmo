@@ -3,13 +3,9 @@ extends Control
 @onready var grid_container = $NinePatchRect/GridContainer
 @onready var slot_scene = preload("res://inventory/ui_slot.tscn")
 
-func switch():
-	self.visible = !self.visible
-	Engine.time_scale = Engine.time_scale + (-1)**(Engine.time_scale)
-
 func _ready():
 	self.visible = false
-	mouse_filter = MOUSE_FILTER_IGNORE
+	mouse_filter = MOUSE_FILTER_STOP
 	update_inventory()
 
 func update_inventory():

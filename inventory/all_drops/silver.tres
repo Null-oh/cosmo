@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://bxdm0aa7cbqxw"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_thrc8"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_getei"]
+[ext_resource type="Texture2D" uid="uid://ctr0roj8037no" path="res://img/actual/drops/sprite_07.png" id="3_rggfq"]
+
+[resource]
+script = ExtResource("2_getei")
+name = "серебро"
+price = 45
+sprite = ExtResource("3_rggfq")
+drop_scene = ExtResource("1_thrc8")

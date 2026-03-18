@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://cpu2vrqfylvi"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_wsonl"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_35s5a"]
+[ext_resource type="Texture2D" uid="uid://c5mrwle3fxbmj" path="res://img/actual/drops/sprite_04.png" id="3_rhlrk"]
+
+[resource]
+script = ExtResource("2_35s5a")
+name = "железо"
+price = 10
+sprite = ExtResource("3_rhlrk")
+drop_scene = ExtResource("1_wsonl")

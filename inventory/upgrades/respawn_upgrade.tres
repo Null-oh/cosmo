@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=11 format=3 uid="uid://cel5qltg532k0"]
+
+[ext_resource type="Script" path="res://inventory/upgrades/upgrade.gd" id="1_oibjo"]
+[ext_resource type="Resource" uid="uid://c30oeegc6uksm" path="res://inventory/all_drops/diamond.tres" id="1_s142u"]
+[ext_resource type="Script" path="res://inventory/upgrades/price_entry.gd" id="2_ygat2"]
+[ext_resource type="Resource" uid="uid://cuh0qcm18u2u3" path="res://inventory/all_drops/mercury.tres" id="3_7wh3q"]
+[ext_resource type="Resource" uid="uid://b41eue3bkrmqn" path="res://inventory/all_drops/uranium.tres" id="4_nhtjh"]
+[ext_resource type="Script" path="res://inventory/upgrades/level_price.gd" id="5_mcjcv"]
+
+[sub_resource type="Resource" id="Resource_tnjjr"]
+script = ExtResource("2_ygat2")
+item = ExtResource("1_s142u")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_4gk8m"]
+script = ExtResource("2_ygat2")
+item = ExtResource("3_7wh3q")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_u8shy"]
+script = ExtResource("2_ygat2")
+item = ExtResource("4_nhtjh")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_iq7ka"]
+script = ExtResource("5_mcjcv")
+item1 = SubResource("Resource_tnjjr")
+item2 = SubResource("Resource_4gk8m")
+item3 = SubResource("Resource_u8shy")
+
+[resource]
+script = ExtResource("1_oibjo")
+id = "respawn"
+name = "Возрождение"
+feature = "respawn"
+initial_level = 0
+descriptions = Array[String]([])
+level_prices = Array[ExtResource("5_mcjcv")]([SubResource("Resource_iq7ka")])

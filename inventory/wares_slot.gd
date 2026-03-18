@@ -36,23 +36,14 @@ func _on_sell_button_pressed():
 			if found_index != -1:
 				wares.items.remove_at(found_index)
 				print("Sold: ", item.name, " for ", item.price)
-		
-		#if wares and item in wares.items:
-			#var index =  wares.items.find(item)
-			#if index != 1:
-				#wares.items.remove_at(index)
-				#print("Sold: ", item.name, " for ", item.price)
+
 		
 		item_count -= 1
 		
 		if item_count > 0:
 			if quantity_label:
 				quantity_label.text = str(item_count)
-				#if item_count > 1:
-					#
-					#quantity_label.visible = true
-				#else:
-					#quantity_label.visible = false
+
 		else:
 			self.queue_free()
 		update_warehouse_ui()

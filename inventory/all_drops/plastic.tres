@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://cbvuk3xxx4inm"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_ihsrg"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_d2bio"]
+[ext_resource type="Texture2D" uid="uid://budqb7mmvvmds" path="res://img/actual/drops/sprite_05.png" id="3_5vdbj"]
+
+[resource]
+script = ExtResource("2_d2bio")
+name = "пластик"
+price = 10
+sprite = ExtResource("3_5vdbj")
+drop_scene = ExtResource("1_ihsrg")

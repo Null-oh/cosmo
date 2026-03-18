@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3kxos6sm1qhu"]
+
+[ext_resource type="Script" path="res://objects/object.gd" id="1_5cn5a"]
+[ext_resource type="Texture2D" uid="uid://g46yafoisslm" path="res://img/actual/ui/boer.png" id="3_msiq8"]
+[ext_resource type="Texture2D" uid="uid://tun4mqn2csc" path="res://img/actual/ui/no-boer.png" id="4_22d6j"]
+
+[sub_resource type="Curve2D" id="Curve2D_u8iib"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 38, 28, 0, 0, 0, 0, 155, 7, 0, 0, 0, 0, 190, -56, 0, 0, 0, 0, 149, -115, 0, 0, 0, 0, 44, -66)
+}
+point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkc4y"]
+radius = 32.0
+
+[node name="object" type="Path2D" groups=["to_map"]]
+curve = SubResource("Curve2D_u8iib")
+script = ExtResource("1_5cn5a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(38, 28)
+rotation = -0.177596
+
+[node name="drill_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rkc4y")
+
+[node name="timer_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="drill_button" type="Button" parent="." groups=["ui"]]
+texture_filter = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -50.0
+offset_right = 15.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("3_msiq8")
+flat = true
+
+[node name="no_drill" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_22d6j")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="drill_button" to="." method="_on_drill_button_pressed"]

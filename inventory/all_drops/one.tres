@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_blv86")
-name = "one"
+name = "тест"
 price = 1
 sprite = ExtResource("2_xwi4y")
 drop_scene = ExtResource("1_bxj6l")

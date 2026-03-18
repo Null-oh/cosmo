@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://b41eue3bkrmqn"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_eeo7n"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_v1oot"]
+[ext_resource type="Texture2D" uid="uid://bpcu3rvrkcowv" path="res://img/actual/drops/sprite_25.png" id="3_c4vlv"]
+
+[resource]
+script = ExtResource("2_v1oot")
+name = "уран"
+price = 400
+sprite = ExtResource("3_c4vlv")
+drop_scene = ExtResource("1_eeo7n")

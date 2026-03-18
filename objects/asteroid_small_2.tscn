@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://2wqp3d1grj8"]
+
+[ext_resource type="Script" path="res://objects/object.gd" id="1_kxqe1"]
+[ext_resource type="Resource" uid="uid://cmad7fpuq7tgb" path="res://inventory/all_drops/stone.tres" id="2_eo5f4"]
+[ext_resource type="Script" path="res://inventory/drop_entry.gd" id="3_q4ymq"]
+[ext_resource type="Resource" uid="uid://cpu2vrqfylvi" path="res://inventory/all_drops/iron.tres" id="4_x4hui"]
+[ext_resource type="Texture2D" uid="uid://dq3yo5abbade5" path="res://img/actual/objects/asteroid_3.png" id="5_jsjo4"]
+[ext_resource type="Texture2D" uid="uid://g46yafoisslm" path="res://img/actual/ui/boer.png" id="6_ngxdq"]
+[ext_resource type="Texture2D" uid="uid://tun4mqn2csc" path="res://img/actual/ui/no-boer.png" id="7_gy471"]
+
+[sub_resource type="Curve2D" id="Curve2D_1gfha"]
+
+[sub_resource type="Resource" id="Resource_cwocu"]
+script = ExtResource("3_q4ymq")
+item = ExtResource("2_eo5f4")
+probability = 100.0
+min_amount = 1
+max_amount = 3
+
+[sub_resource type="Resource" id="Resource_sb6ey"]
+script = ExtResource("3_q4ymq")
+item = ExtResource("4_x4hui")
+probability = 50.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkc4y"]
+radius = 32.0
+
+[node name="object" type="Path2D" node_paths=PackedStringArray("texture")]
+curve = SubResource("Curve2D_1gfha")
+script = ExtResource("1_kxqe1")
+initial_health = 5
+texture = NodePath("Sprite2D")
+self_speed = 20.0
+auto_start = true
+drops = Array[ExtResource("3_q4ymq")]([SubResource("Resource_cwocu"), SubResource("Resource_sb6ey")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(29, 35)
+texture = ExtResource("5_jsjo4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(38, 28)
+rotation = -0.177596
+
+[node name="drill_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.46
+offset_top = -50.095
+offset_right = 18.54
+offset_bottom = -27.095
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rkc4y")
+
+[node name="timer_label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.46
+offset_top = -50.095
+offset_right = 18.54
+offset_bottom = -27.095
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="drill_button" type="Button" parent="." groups=["ui"]]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("6_ngxdq")
+flat = true
+
+[node name="no_drill" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("7_gy471")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="pressed" from="drill_button" to="." method="_on_drill_button_pressed"]

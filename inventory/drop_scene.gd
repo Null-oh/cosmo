@@ -25,7 +25,6 @@ func _ready():
 
 func setup_drop_item(new_drop_item: DropItem):
 	drop_item = new_drop_item
-	#drop_item.drop_scene.lifetime = self.lifetime
 	if sprite_node:
 		sprite_node.texture = drop_item.sprite
 

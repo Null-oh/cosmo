@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://cv468drqimdtf"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_w1onq"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_rgg8e"]
+[ext_resource type="Texture2D" uid="uid://2tlkjelcm4h0" path="res://img/actual/drops/sprite_13.png" id="3_yyqnt"]
+
+[resource]
+script = ExtResource("2_rgg8e")
+name = "золото"
+price = 50
+sprite = ExtResource("3_yyqnt")
+drop_scene = ExtResource("1_w1onq")

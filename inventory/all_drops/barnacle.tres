@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://ti2r1rg0qfaq"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_6obhb"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_xl0dp"]
+[ext_resource type="Texture2D" uid="uid://c6tjr3q33672d" path="res://img/actual/objects/barnacle_0-1.png.png" id="3_1sm0l"]
+
+[resource]
+script = ExtResource("2_xl0dp")
+name = "ракушка"
+price = 10
+sprite = ExtResource("3_1sm0l")
+drop_scene = ExtResource("1_6obhb")

@@ -1,0 +1,213 @@
+[gd_scene load_steps=28 format=3 uid="uid://b3go0nlopvd3q"]
+
+[ext_resource type="Script" path="res://objects/asteroid_field.gd" id="1_3fjte"]
+[ext_resource type="PackedScene" uid="uid://bksg67rcy3jv" path="res://objects/asteroid_big.tscn" id="1_lnpud"]
+[ext_resource type="PackedScene" uid="uid://d4lijap2kxlix" path="res://objects/asteroid_small_1.tscn" id="2_i70pu"]
+[ext_resource type="PackedScene" uid="uid://b012uq0palvaq" path="res://objects/asteroid_mid.tscn" id="2_vawg8"]
+[ext_resource type="Texture2D" uid="uid://b7c3eqo7oam8b" path="res://img/actual/drops/sprite_26.png" id="2_yvmec"]
+[ext_resource type="PackedScene" uid="uid://2wqp3d1grj8" path="res://objects/asteroid_small_2.tscn" id="3_05mo5"]
+[ext_resource type="PackedScene" uid="uid://lkbk60opfidu" path="res://assets/spawn_base.tscn" id="6_d86hp"]
+[ext_resource type="Resource" uid="uid://c1bgw4drbquda" path="res://inventory/all_drops/dust.tres" id="7_jh4xc"]
+[ext_resource type="Script" path="res://inventory/drop_entry.gd" id="8_768j3"]
+[ext_resource type="Resource" uid="uid://cmad7fpuq7tgb" path="res://inventory/all_drops/stone.tres" id="9_nsx3w"]
+
+[sub_resource type="Curve2D" id="Curve2D_ef25u"]
+_data = {
+"points": PackedVector2Array(4.48985, 226.737, -4.48985, -226.737, -500, 0, -340.471, 10.4695, 340.471, -10.4695, 0, -500, 9.95939, -230.511, -9.95939, 230.511, 500, 0, 314.145, -11.7348, -314.145, 11.7348, 0, 500, -28.0616, 198.676, 28.0616, -198.676, -500, 0)
+}
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_g8ccs"]
+script = ExtResource("8_768j3")
+item = ExtResource("7_jh4xc")
+probability = 50.0
+min_amount = 1
+max_amount = 3
+
+[sub_resource type="Resource" id="Resource_j6unf"]
+script = ExtResource("8_768j3")
+item = ExtResource("9_nsx3w")
+probability = 80.0
+min_amount = 1
+max_amount = 3
+
+[sub_resource type="Curve2D" id="Curve2D_h2k1v"]
+
+[sub_resource type="Curve2D" id="Curve2D_ytu6h"]
+_data = {
+"points": PackedVector2Array(-248, 154, 248, -154, 377, 438, 0, 222, 0, -222, 667, -70, 284, 74, -284, -74, 213, -598, -4, -264, 4, 264, -563, 24, -204, -58, 204, 58, -219, 560, -202, 92, 202, -92, 377, 438)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_55j5x"]
+_data = {
+"points": PackedVector2Array(-172.859, 2.24492, 172.859, -2.24492, -3, -527, 4.48985, -280.615, -4.48985, 280.615, 778, -4, 255.921, 0, -255.921, 0, -3, 450, -29.184, 213.268, 29.184, -213.268, -576, -8, -397.352, 29.184, 397.352, -29.184, -3, -527)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_nor1r"]
+_data = {
+"points": PackedVector2Array(264.004, 33.2978, -264.004, -33.2978, 124, 522, 45.1899, 330.6, -45.1899, -330.6, -318, 104, -297.302, 16.6489, 297.302, -16.6489, 108, -548, 14.2705, -216.436, -14.2705, 216.436, 786, 42, 244.977, -2.37841, -244.977, 2.37841, 124, 522)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_hibx4"]
+_data = {
+"points": PackedVector2Array(206.922, -254.49, -206.922, 254.49, -438, -429, -166.489, -149.84, 166.489, 149.84, -498, 396, -242.598, 156.975, 242.598, -156.975, 382, 470, 249.733, 173.624, -249.733, -173.624, 466, -494, 173.624, -137.948, -173.624, 137.948, -438, -429)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_r7ty6"]
+_data = {
+"points": PackedVector2Array(263.26, 234.444, -263.26, -234.444, -296.045, 449.504, -169.488, 223.81, 169.488, -223.81, -420.33, -321.38, -247.262, -212.548, 247.262, 212.548, 376.986, -413.055, 216.266, -244.295, -216.266, 244.295, 581.994, 474.709, 480.527, 210.045, -480.527, -210.045, -296.045, 449.504)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_8h2cl"]
+_data = {
+"points": PackedVector2Array(-109.046, -249.382, 109.046, 249.382, 557.112, -241.355, 203.763, -274.378, -203.763, 274.378, 461.137, 451.472, 212.133, 264.87, -212.133, -264.87, -347.633, 500.041, -363.65, 127.436, 363.65, -127.436, -289.652, -528.192, -93.3341, -277.257, 93.3341, 277.257, 557.112, -241.355)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_dvhg3"]
+_data = {
+"points": PackedVector2Array(33.2978, 116.542, -33.2978, -116.542, -654, 241, -275.896, 180.759, 275.896, -180.759, -362, -489, -164.111, -90.3797, 164.111, 90.3797, 325, -596, -2.37841, -221.192, 2.37841, 221.192, 692, -120, 135.57, -57.0819, -135.57, 57.0819, 425, 458, 159.354, 47.5683, -159.354, -47.5683, -226, 531, 19.0273, 78.4877, -19.0273, -78.4877, -654, 241)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_tq34y"]
+_data = {
+"points": PackedVector2Array(-270.51, 165.495, 270.51, -165.495, -352, -629, -130.813, -156.975, 130.813, 156.975, 461, -558, 42.8115, -164.111, -42.8115, 164.111, 551, -99, 145.083, -52.3251, -145.083, 52.3251, 235, 363, 178.381, 102.272, -178.381, -102.272, -291, 277, -25.7747, 175.154, 25.7747, -175.154, -631, -246, -101.714, 61.7422, 101.714, -61.7422, -352, -629)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_07hdj"]
+_data = {
+"points": PackedVector2Array(-171.246, 123.678, 171.246, -123.678, -258, -380, -152.218, -121.299, 152.218, 121.299, 163, -418, -2.37841, -166.489, 2.37841, 166.489, 368, -118, 214.057, -61.8388, -214.057, 61.8388, 178, 234, 85.6229, 185.516, -85.6229, -185.516, -308, 60, -116.542, 133.191, 116.542, -133.191, -258, -380)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_pxo36"]
+_data = {
+"points": PackedVector2Array(52.3251, -268.761, -52.3251, 268.761, 496, -182, 230.706, -2.37841, -230.706, 2.37841, 197, 222, 2.37841, 261.626, -2.37841, -261.626, -353, -99, -233.085, 2.37841, 233.085, -2.37841, 133, -494, -7.13524, -116.542, 7.13524, 116.542, 496, -182)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ex1n0"]
+_data = {
+"points": PackedVector2Array(144.25, -62.2254, -144.25, 62.2254, -324, -584, -78.4877, -361.519, 78.4877, 361.519, -695, 82, -347.248, 109.407, 347.248, -109.407, 80, 586, -21.4057, 202.165, 21.4057, -202.165, 549, -108, 272.328, 174.813, -272.328, -174.813, 425, -722, 110.309, -67.8823, -110.309, 67.8823, -324, -584)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_xswci"]
+_data = {
+"points": PackedVector2Array(99.7807, -144.326, -99.7807, 144.326, -334, -318, -69.4901, -151.453, 69.4901, 151.453, -420, 113, -249.452, 8.90899, 249.452, -8.90899, -3, 363, -24.9452, 220.943, 24.9452, -220.943, 462, 88, 215.597, 24.9452, -215.597, -24.9452, 34, -448, 76.6173, -80.1809, -76.6173, 80.1809, -334, -318)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_58uec"]
+_data = {
+"points": PackedVector2Array(44.8985, 163.879, -44.8985, -163.879, 492, -274, 255.921, -143.675, -255.921, 143.675, -217, -609, -197.553, -253.676, 197.553, 253.676, -435, 397, -305.31, 179.594, 305.31, -179.594, 407, 527, 44.8985, 94.2868, -44.8985, -94.2868, 492, -274)
+}
+point_count = 5
+
+[node name="asteroid field" type="Node2D" groups=["to_map"]]
+texture_filter = 1
+script = ExtResource("1_3fjte")
+map_mark = ExtResource("2_yvmec")
+
+[node name="spawns" type="Node2D" parent="."]
+
+[node name="spawn_base" parent="spawns" instance=ExtResource("6_d86hp")]
+curve = SubResource("Curve2D_ef25u")
+drops = Array[ExtResource("8_768j3")]([SubResource("Resource_g8ccs"), SubResource("Resource_j6unf")])
+timer = 5
+lifetime = 120.0
+drop_speed = 10.0
+drop_movement = 1
+orbit = 50
+self_speed = 15.0
+loop_path = true
+auto_start = true
+
+[node name="spawn_base2" parent="spawns" instance=ExtResource("6_d86hp")]
+curve = SubResource("Curve2D_h2k1v")
+drops = Array[ExtResource("8_768j3")]([SubResource("Resource_g8ccs"), SubResource("Resource_j6unf")])
+timer = 5
+lifetime = 120.0
+drop_speed = 10.0
+drop_movement = 1
+orbit = 500
+loop_path = true
+auto_start = true
+
+[node name="spawn_base3" parent="spawns" instance=ExtResource("6_d86hp")]
+curve = SubResource("Curve2D_ytu6h")
+drops = Array[ExtResource("8_768j3")]([SubResource("Resource_g8ccs"), SubResource("Resource_j6unf")])
+timer = 5
+lifetime = 120.0
+drop_speed = 10.0
+drop_movement = 1
+orbit = 50
+self_speed = 15.0
+loop_path = true
+auto_start = true
+
+[node name="big" type="Node2D" parent="."]
+
+[node name="object" parent="big" instance=ExtResource("1_lnpud")]
+curve = SubResource("Curve2D_55j5x")
+
+[node name="object2" parent="big" instance=ExtResource("1_lnpud")]
+position = Vector2(-139, -43)
+curve = SubResource("Curve2D_nor1r")
+
+[node name="mid" type="Node2D" parent="."]
+
+[node name="object" parent="mid" instance=ExtResource("2_vawg8")]
+curve = SubResource("Curve2D_hibx4")
+
+[node name="object2" parent="mid" node_paths=PackedStringArray("texture") instance=ExtResource("2_vawg8")]
+position = Vector2(-52, -5)
+rotation = -0.673564
+curve = SubResource("Curve2D_r7ty6")
+texture = NodePath("../object/Sprite2D")
+
+[node name="object3" parent="mid" node_paths=PackedStringArray("texture") instance=ExtResource("2_vawg8")]
+position = Vector2(55, -10)
+rotation = -1.24608
+curve = SubResource("Curve2D_8h2cl")
+texture = NodePath("../object/Sprite2D")
+
+[node name="small1" type="Node2D" parent="."]
+
+[node name="object" parent="small1" instance=ExtResource("2_i70pu")]
+curve = SubResource("Curve2D_dvhg3")
+
+[node name="object2" parent="small1" node_paths=PackedStringArray("texture") instance=ExtResource("2_i70pu")]
+position = Vector2(36, 17)
+curve = SubResource("Curve2D_tq34y")
+texture = NodePath("../object/Sprite2D")
+
+[node name="object3" parent="small1" node_paths=PackedStringArray("texture") instance=ExtResource("2_i70pu")]
+position = Vector2(36, 17)
+curve = SubResource("Curve2D_07hdj")
+texture = NodePath("../object/Sprite2D")
+
+[node name="object4" parent="small1" node_paths=PackedStringArray("texture") instance=ExtResource("2_i70pu")]
+position = Vector2(-45, 86)
+curve = SubResource("Curve2D_pxo36")
+texture = NodePath("../object/Sprite2D")
+
+[node name="small2" type="Node2D" parent="."]
+
+[node name="object" parent="small2" instance=ExtResource("3_05mo5")]
+curve = SubResource("Curve2D_ex1n0")
+
+[node name="object2" parent="small2" node_paths=PackedStringArray("texture") instance=ExtResource("3_05mo5")]
+curve = SubResource("Curve2D_xswci")
+texture = NodePath("../object/Sprite2D")
+
+[node name="object3" parent="small2" node_paths=PackedStringArray("texture") instance=ExtResource("3_05mo5")]
+curve = SubResource("Curve2D_58uec")
+texture = NodePath("../object/Sprite2D")

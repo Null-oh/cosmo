@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://b2s3v4r7j2p8n"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_k1udg"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_i0dgq"]
+[ext_resource type="Texture2D" uid="uid://8gmc425kxjua" path="res://img/actual/drops/sprite_20.png" id="3_f803p"]
+
+[resource]
+script = ExtResource("2_i0dgq")
+name = "клей"
+price = 20
+sprite = ExtResource("3_f803p")
+drop_scene = ExtResource("1_k1udg")

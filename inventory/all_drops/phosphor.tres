@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://bwfk24sfo8wkt"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_ft0q5"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_rex1j"]
+[ext_resource type="Texture2D" uid="uid://cupsrt5cwo45n" path="res://img/actual/drops/sprite_28.png" id="3_abe8t"]
+
+[resource]
+script = ExtResource("2_rex1j")
+name = "фосфор"
+price = 55
+sprite = ExtResource("3_abe8t")
+drop_scene = ExtResource("1_ft0q5")

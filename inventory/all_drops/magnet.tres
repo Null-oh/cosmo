@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://dwo51eluyfsni"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_cidxd"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_g658o"]
+[ext_resource type="Texture2D" uid="uid://clilvumhmvfgp" path="res://img/actual/drops/sprite_08.png" id="3_675bq"]
+
+[resource]
+script = ExtResource("2_g658o")
+name = "магнит"
+price = 15
+sprite = ExtResource("3_675bq")
+drop_scene = ExtResource("1_cidxd")

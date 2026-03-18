@@ -3,11 +3,15 @@
 [ext_resource type="Script" path="res://assets/spawn_base.gd" id="1_ndsfo"]
 
 [sub_resource type="Curve2D" id="Curve2D_pv1va"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 19, 26, 0, 0, 0, 0, 173, 18, 0, 0, 0, 0, 172, -78, 0, 0, 0, 0, 1, -150, 0, 0, 0, 0, -100, -115, 0, 0, 0, 0, -78, -23)
+}
+point_count = 6
 
 [node name="spawn_base" type="Path2D"]
 curve = SubResource("Curve2D_pv1va")
 script = ExtResource("1_ndsfo")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(-12, 8)
-rotation = 3.07274
+position = Vector2(19, 26)
+rotation = -0.0519014

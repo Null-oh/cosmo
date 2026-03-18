@@ -1,32 +1,138 @@
-[gd_scene load_steps=6 format=3 uid="uid://b16axa3n2pt0q"]
+[gd_scene load_steps=24 format=3 uid="uid://b16axa3n2pt0q"]
 
 [ext_resource type="Script" path="res://assets/ship.gd" id="1_rd41m"]
-[ext_resource type="Texture2D" uid="uid://cpcusldbvbu6i" path="res://img/demo_ship.png" id="2_4qqdc"]
+[ext_resource type="Texture2D" uid="uid://8lqw23xdbo60" path="res://img/actual/ship/speed1.png" id="2_yj3sa"]
+[ext_resource type="Texture2D" uid="uid://byd2csbmejklv" path="res://img/actual/ship/speed2.png" id="3_yo7d1"]
+[ext_resource type="Texture2D" uid="uid://d4foka070m0tq" path="res://img/actual/ship/speed3.png" id="4_wae8t"]
+[ext_resource type="Texture2D" uid="uid://bxwp6dfxynhhj" path="res://img/actual/ship/fuel1.png" id="5_8sdx5"]
+[ext_resource type="Texture2D" uid="uid://bpjgb78vwupvl" path="res://img/actual/ship/fuel2.png" id="6_wxuee"]
+[ext_resource type="Texture2D" uid="uid://cc4vi6ory2e0d" path="res://img/actual/ship/fuel3.png" id="7_c13qd"]
+[ext_resource type="Texture2D" uid="uid://btci4pg0pyawq" path="res://img/actual/ship/boer1.png" id="8_mnx2c"]
+[ext_resource type="Texture2D" uid="uid://cnvypjfopswyh" path="res://img/actual/ship/boer2.png" id="9_7hja4"]
+[ext_resource type="Texture2D" uid="uid://dqlgelwlii4bu" path="res://img/actual/ship/boer3.png" id="10_ydt6w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3l30"]
-atlas = ExtResource("2_4qqdc")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylfgg"]
+radius = 20.0049
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwduj"]
+atlas = ExtResource("2_yj3sa")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gthk4"]
+atlas = ExtResource("3_yo7d1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skkmk"]
+atlas = ExtResource("4_wae8t")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jb36"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q3l30")
+"texture": SubResource("AtlasTexture_pwduj")
 }],
 "loop": true,
-"name": &"default",
+"name": &"speed1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gthk4")
+}],
+"loop": true,
+"name": &"speed2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skkmk")
+}],
+"loop": true,
+"name": &"speed3",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ylfgg"]
-radius = 20.0049
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjx8e"]
+atlas = ExtResource("5_8sdx5")
+region = Rect2(0, 0, 64, 64)
 
-[node name="ship" type="CharacterBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng5pc"]
+atlas = ExtResource("6_wxuee")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_615u5"]
+atlas = ExtResource("7_c13qd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ntdid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjx8e")
+}],
+"loop": true,
+"name": &"fuel1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng5pc")
+}],
+"loop": true,
+"name": &"fuel2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_615u5")
+}],
+"loop": true,
+"name": &"fuel3",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndlxx"]
+atlas = ExtResource("8_mnx2c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52m5t"]
+atlas = ExtResource("9_7hja4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42sl0"]
+atlas = ExtResource("10_ydt6w")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6y3h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndlxx")
+}],
+"loop": true,
+"name": &"boer1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52m5t")
+}],
+"loop": true,
+"name": &"boer2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42sl0")
+}],
+"loop": true,
+"name": &"boer3",
+"speed": 5.0
+}]
+
+[node name="ship" type="CharacterBody2D" groups=["ship", "to_map"]]
 script = ExtResource("1_rd41m")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_8jb36")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-16, 16, 0, -16, 16, 16)
@@ -39,3 +145,20 @@ zoom = Vector2(2, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_area"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_ylfgg")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="speed_sprite" type="AnimatedSprite2D" parent="sprites"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_8jb36")
+animation = &"speed1"
+
+[node name="fuel_sprite" type="AnimatedSprite2D" parent="sprites"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ntdid")
+animation = &"fuel1"
+
+[node name="boer_sprite" type="AnimatedSprite2D" parent="sprites"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_o6y3h")
+animation = &"boer1"

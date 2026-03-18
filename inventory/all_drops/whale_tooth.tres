@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DropItem" load_steps=4 format=3 uid="uid://cj08cwfxqtmb5"]
+
+[ext_resource type="PackedScene" uid="uid://kyq2bdjyemc3" path="res://inventory/drop_scene.tscn" id="1_av3f7"]
+[ext_resource type="Script" path="res://inventory/drop.gd" id="2_xkl1b"]
+[ext_resource type="Texture2D" uid="uid://qyu4wtckdrtl" path="res://img/demo_drop/sprite_3.png" id="3_p7bvb"]
+
+[resource]
+script = ExtResource("2_xkl1b")
+name = "китовый зуб"
+price = 500
+sprite = ExtResource("3_p7bvb")
+drop_scene = ExtResource("1_av3f7")

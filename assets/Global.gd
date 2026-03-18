@@ -2,10 +2,13 @@ extends Node
 
 var money: int = 0
 
-var max_fuel: float = 100.0
-var current_fuel: float = 100.0
+var max_fuel: float = 50.0
+var current_fuel: float = 50.0
 
-var speed: float = 200.0
+var speed: float = 150.0
+
+var boer: int = 0
+var respawn: int = 0
 
 var tick: float = 1.0
 
@@ -29,11 +32,9 @@ func _ready():
 	
 	init_upgrades()
 	apply_all_upgrades()
-	print("Global ready - upgrades applied")
 
 func save_ship_state(position: Vector2):
 	ship_position = position
-	print("Position saved")
 
 func get_ship_state():
 	return {"position": ship_position}
@@ -104,11 +105,23 @@ func apply_all_upgrades():
 func apply_upgrade(feature: String, level: int):
 	match feature:
 		"speed":
-			speed = 200 + (level * 50)
+			speed = 150 + ((level - 1) * 50)
 			upgrades_applied.emit()
-			print("Speed: ", speed)
 			
 		"fuel":
-			max_fuel += (level * 50)
+			max_fuel += ((level - 1) * 50)
 			upgrades_applied.emit()
-			print("mfuel: ", max_fuel)
+			
+		"boer": 
+			if level == 0:
+				boer = 0
+			elif level == 1:
+				boer = 1
+				upgrades_applied.emit()
+		
+		"respawn": 
+			if level == 0:
+				respawn = 0
+			elif level == 1:
+				respawn = 1
+				upgrades_applied.emit()
