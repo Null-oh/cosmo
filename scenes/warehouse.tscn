@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwjrymqm82ogx"]
+[gd_scene format=3 uid="uid://dwjrymqm82ogx"]
 
-[ext_resource type="Script" path="res://assets/back_button.gd" id="1_o62l3"]
-[ext_resource type="Script" path="res://scenes/warehouse.gd" id="1_x02cv"]
+[ext_resource type="Script" uid="uid://b5ny88k8mqdrf" path="res://assets/back_button.gd" id="1_o62l3"]
+[ext_resource type="Script" uid="uid://i8xkce8obc0l" path="res://scenes/warehouse.gd" id="1_x02cv"]
 [ext_resource type="Resource" uid="uid://h4l7arqnul4s" path="res://inventory/upgrades/AllUpgrades.tres" id="2_np22k"]
 [ext_resource type="PackedScene" uid="uid://rkay8g78wajo" path="res://inventory/upgrades/upgrade_slot.tscn" id="3_47fku"]
+[ext_resource type="Texture2D" uid="uid://chn1sw1wbdm74" path="res://img/actual/ui/button_5.png" id="3_dwu2h"]
+[ext_resource type="Texture2D" uid="uid://dmxpug8a780kj" path="res://img/actual/ui/sprite_2.png" id="5_uied1"]
+[ext_resource type="Texture2D" uid="uid://b7coid8w6o4wg" path="res://img/actual/ui/sprite_5.png" id="6_xelbx"]
 
-[node name="warehouse" type="Node2D"]
+[node name="warehouse" type="Node2D" unique_id=1902024766]
 script = ExtResource("1_x02cv")
 upgrades_database = ExtResource("2_np22k")
 
-[node name="wares_UI" type="CanvasLayer" parent="."]
+[node name="wares_UI" type="CanvasLayer" parent="." unique_id=1115258740]
 
-[node name="ColorRect" type="ColorRect" parent="wares_UI"]
+[node name="ColorRect" type="ColorRect" parent="wares_UI" unique_id=1441094233]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.498039, 0.498039, 0.498039, 1)
 
-[node name="Control" type="Control" parent="wares_UI"]
+[node name="Control" type="Control" parent="wares_UI" unique_id=704614417]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="wares_UI/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="wares_UI/Control" unique_id=552095075]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,42 +40,50 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer" unique_id=962887146]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="wares_UI/Control/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="wares_UI/Control/VBoxContainer/MarginContainer" unique_id=1262921106]
 layout_direction = 2
 layout_mode = 2
 alignment = 1
 
-[node name="back" type="Button" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="back" type="Button" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1937883982]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "<-"
+icon = ExtResource("3_dwu2h")
+flat = true
+icon_alignment = 1
 script = ExtResource("1_o62l3")
 
-[node name="Control" type="Control" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=501204601]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="money_label" type="Label" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="money_label" type="Label" parent="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer" unique_id=776429621]
 layout_direction = 2
 layout_mode = 2
 text = "ffffff"
 horizontal_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="wares_UI/Control/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="wares_UI/Control/VBoxContainer" unique_id=203070825]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
+tab_0/icon = ExtResource("5_uied1")
+tab_1/icon = ExtResource("6_xelbx")
 
-[node name="wares_tab" type="TabBar" parent="wares_UI/Control/VBoxContainer/TabContainer"]
+[node name="wares_tab" type="TabBar" parent="wares_UI/Control/VBoxContainer/TabContainer" unique_id=1346946156]
 layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = ""
 
-[node name="NinePatchRect" type="NinePatchRect" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab"]
+[node name="NinePatchRect" type="NinePatchRect" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab" unique_id=380462484]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,7 +93,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect"]
+[node name="ColorRect" type="ColorRect" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect" unique_id=1212502960]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.603922, 0.698039, 0.776471, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect" unique_id=1881166212]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,17 +114,19 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="wares_grid_container" type="GridContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect/MarginContainer"]
+[node name="wares_grid_container" type="GridContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/wares_tab/NinePatchRect/MarginContainer" unique_id=1603072767]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
 
-[node name="upgrades_tab" type="TabBar" parent="wares_UI/Control/VBoxContainer/TabContainer"]
+[node name="upgrades_tab" type="TabBar" parent="wares_UI/Control/VBoxContainer/TabContainer" unique_id=499399925]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = ""
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab"]
+[node name="NinePatchRect2" type="NinePatchRect" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab" unique_id=1975112829]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -125,7 +138,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2"]
+[node name="ColorRect" type="ColorRect" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2" unique_id=1195800521]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +149,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.760784, 0.639216, 0.737255, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2"]
+[node name="MarginContainer" type="MarginContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2" unique_id=663946083]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,13 +163,13 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="upgrades_grid_container" type="GridContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2/MarginContainer"]
+[node name="upgrades_grid_container" type="GridContainer" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2/MarginContainer" unique_id=185850710]
 layout_mode = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 3
 
-[node name="upgrade_slot" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2/MarginContainer/upgrades_grid_container" instance=ExtResource("3_47fku")]
+[node name="upgrade_slot" parent="wares_UI/Control/VBoxContainer/TabContainer/upgrades_tab/NinePatchRect2/MarginContainer/upgrades_grid_container" unique_id=1900873191 instance=ExtResource("3_47fku")]
 layout_mode = 2
 
 [connection signal="pressed" from="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer/back" to="wares_UI/Control/VBoxContainer/MarginContainer/HBoxContainer/back" method="_on_pressed"]

@@ -1,26 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://dftidlnxwr3u4"]
+[gd_scene format=3 uid="uid://dftidlnxwr3u4"]
 
-[ext_resource type="Script" path="res://assets/ui.gd" id="1_57kka"]
+[ext_resource type="Script" uid="uid://odtp3vpufarj" path="res://assets/ui.gd" id="1_57kka"]
 [ext_resource type="Resource" uid="uid://cv316mqbw3mmy" path="res://inventory/inventory1.tres" id="2_5urs0"]
-[ext_resource type="Script" path="res://assets/base_button.gd" id="2_7eop7"]
+[ext_resource type="Script" uid="uid://qwpt0c3ftty" path="res://assets/base_button.gd" id="2_7eop7"]
 [ext_resource type="Texture2D" uid="uid://c00jwf865n7ic" path="res://img/actual/ui/button_6.png" id="4_4nw7c"]
 [ext_resource type="PackedScene" uid="uid://bvdqi4m5er4cg" path="res://inventory/inv_ui.tscn" id="5_onbej"]
-[ext_resource type="Script" path="res://assets/wares_button.gd" id="5_u0rmw"]
+[ext_resource type="Script" uid="uid://bqy1d3afcf3ir" path="res://assets/wares_button.gd" id="5_u0rmw"]
 [ext_resource type="Texture2D" uid="uid://byovug4ikt23q" path="res://img/actual/ui/button_1.png" id="6_n60ql"]
 [ext_resource type="PackedScene" uid="uid://yro81xd5lot7" path="res://assets/mini_map.tscn" id="8_86slx"]
 [ext_resource type="Texture2D" uid="uid://bdajuot5gfp8v" path="res://img/actual/ui/button_4.png" id="8_ayfia"]
-[ext_resource type="Script" path="res://assets/pause_container.gd" id="10_0v71b"]
+[ext_resource type="Script" uid="uid://ch3ajvjynib1s" path="res://assets/pause_container.gd" id="10_0v71b"]
 [ext_resource type="Texture2D" uid="uid://wdegcc51fmox" path="res://img/actual/ui/button_3.png" id="10_n74qw"]
 [ext_resource type="Texture2D" uid="uid://bl4y6q1l6m3vp" path="res://img/actual/ui/button_2.png" id="12_ivfyl"]
+[ext_resource type="Texture2D" uid="uid://bcxusgnv6p813" path="res://img/actual/ui/lines_2.png" id="13_id1fs"]
+[ext_resource type="Texture2D" uid="uid://b1i3kn0k0074c" path="res://img/actual/ui/lines_3.png" id="14_m28um"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tdcm"]
 bg_color = Color(0.823529, 0, 0, 1)
 
-[node name="UI" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer" unique_id=876724608]
 script = ExtResource("1_57kka")
 inventory = ExtResource("2_5urs0")
 
-[node name="fuel" type="ProgressBar" parent="."]
+[node name="fuel" type="ProgressBar" parent="." unique_id=1376569891]
 custom_minimum_size = Vector2(20, 400)
 anchors_preset = 4
 anchor_top = 0.5
@@ -34,7 +36,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_7tdcm")
 fill_mode = 3
 show_percentage = false
 
-[node name="mini_map" parent="." instance=ExtResource("8_86slx")]
+[node name="mini_map" parent="." unique_id=29014333 instance=ExtResource("8_86slx")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,7 +45,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1191206771]
 anchors_preset = -1
 anchor_left = 0.98
 anchor_top = 0.02
@@ -55,7 +57,7 @@ grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="pause" type="Button" parent="VBoxContainer" groups=["ui"]]
+[node name="pause" type="Button" parent="VBoxContainer" unique_id=393257705 groups=["ui"]]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
@@ -63,7 +65,7 @@ layout_mode = 2
 icon = ExtResource("4_4nw7c")
 flat = true
 
-[node name="base" type="Button" parent="VBoxContainer" groups=["ui"]]
+[node name="base" type="Button" parent="VBoxContainer" unique_id=766257058 groups=["ui"]]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
@@ -72,7 +74,7 @@ icon = ExtResource("6_n60ql")
 flat = true
 script = ExtResource("2_7eop7")
 
-[node name="inventory" type="Button" parent="VBoxContainer" groups=["ui"]]
+[node name="inventory" type="Button" parent="VBoxContainer" unique_id=36850408 groups=["ui"]]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
@@ -80,14 +82,14 @@ layout_mode = 2
 icon = ExtResource("8_ayfia")
 flat = true
 
-[node name="map" type="Button" parent="VBoxContainer" groups=["ui"]]
+[node name="map" type="Button" parent="VBoxContainer" unique_id=1391021276 groups=["ui"]]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 icon = ExtResource("10_n74qw")
 flat = true
 
-[node name="wares" type="Button" parent="VBoxContainer" groups=["ui"]]
+[node name="wares" type="Button" parent="VBoxContainer" unique_id=1308058547 groups=["ui"]]
 texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_direction = 3
@@ -96,7 +98,7 @@ icon = ExtResource("12_ivfyl")
 flat = true
 script = ExtResource("5_u0rmw")
 
-[node name="inv_ui" parent="." groups=["inventory_ui"] instance=ExtResource("5_onbej")]
+[node name="inv_ui" parent="." unique_id=1492873210 groups=["inventory_ui"] instance=ExtResource("5_onbej")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -105,7 +107,7 @@ anchor_bottom = 0.5
 offset_left = -25.0
 offset_right = 25.0
 
-[node name="pause_container" type="VBoxContainer" parent="."]
+[node name="pause_container" type="VBoxContainer" parent="." unique_id=1369151401]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -121,15 +123,21 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("10_0v71b")
 
-[node name="continue" type="Button" parent="pause_container"]
+[node name="continue" type="Button" parent="pause_container" unique_id=1686105460]
+texture_filter = 1
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
-text = "продолжить"
+icon = ExtResource("13_id1fs")
+flat = true
+icon_alignment = 1
 
-[node name="exit" type="Button" parent="pause_container"]
+[node name="exit" type="Button" parent="pause_container" unique_id=2011666678]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "выйти"
+icon = ExtResource("14_m28um")
+flat = true
+icon_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="VBoxContainer/base" to="VBoxContainer/base" method="_on_pressed"]

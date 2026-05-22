@@ -80,14 +80,14 @@ func set_upgrade_slot(slot, upgrade):
 		
 		if current_level >= 3:
 			buy_button.disabled = true
-			buy_button.text = "max"
+			buy_button.text = "Максимум"
 		else:
 			if can_afford_upgrade(upgrade):
 				buy_button.disabled = false
-				buy_button.text = "get"
+				buy_button.text = "Купить"
 			else:
 				buy_button.disabled = true
-				buy_button.text = "not enough"
+				buy_button.text = "Недостаточно"
 		
 		if buy_button.is_connected("pressed", _on_buy_button_pressed):
 			buy_button.pressed.disconnect(_on_buy_button_pressed)
@@ -185,8 +185,8 @@ func spend_upgrade_resources(upgrade: Upgrade):
 		Global.remove_from_wares(required_item_name, required_quantity)
 
 func update_money():
-	money_label.text = str("Money: ", Global.money)
+	money_label.text = str("Деньги: ", Global.money)
 
 func update_labels():
-	tab_container.set_tab_title(0, "wares")
-	tab_container.set_tab_title(1, "upgrades")
+	tab_container.set_tab_title(0, "")
+	tab_container.set_tab_title(1, "")
